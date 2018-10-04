@@ -18,8 +18,6 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
-    private Button btn;
-
     private MyViewModel viewModel;
 
     @Override
@@ -30,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
         viewModel = ViewModelProviders.of(this).get(MyViewModel.class);
 
         textView = findViewById(R.id.txtView);
-        btn = findViewById(R.id.btn);
 
         viewModel.getText().observe(this, new Observer<String>() {
             @Override
@@ -48,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class MyAsyncTask extends AsyncTask<Void, Integer, String>{
+    private class MyAsyncTask extends AsyncTask<Void, Integer, String> {
         @Override
         protected String doInBackground(Void... voids) {
             Random rng = new Random();
